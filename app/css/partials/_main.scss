@@ -1,4 +1,28 @@
+@mixin center-xy-absolute {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+}
+
+* {
+	box-sizing: border-box;
+}
+
 html {
 	background: $bodyBgClr;
 	color: $mainTxtClr;
+}
+
+.center-xy-absolute {
+	@include center-xy-absolute;
+}
+
+.center-xy-line-height:before {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
 }

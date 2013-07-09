@@ -1,3 +1,48 @@
 #challengeWrapper {
 	display: none;
+	position: absolute;
+	top: 0;
+	right: 50px;
+	bottom: 250px;
+	left: 50px;
+}
+
+// #team1{background:red}#team2{background:yellow;}
+
+#team1,
+#team2 {
+	padding: 50px;
+	position: relative;
+}
+
+#team1,
+#team2,
+#vs {
+	float: left;
+	width: 32%;
+	height: 100%;
+	overflow: hidden;
+}
+#vs {
+	// background: blue;
+	text-align: center;
+	width: 36%;
+
+	& > div {
+		color: $vsTxtClr;
+		font-size: 15em;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.icon-entered {
+	border: 1px dashed white;
+
+	&#team1:before,
+	&#team2:before {
+		content: "drag and drop a player icon here";
+		display: block;
+		@include center-xy-absolute;
+	}
 }

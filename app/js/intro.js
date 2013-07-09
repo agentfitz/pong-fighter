@@ -3,8 +3,7 @@ define(["jquery", "appDom", "challenge", "icons"], function($, appDom, challenge
 	var api = {},
 
 		dom = {
-			introWrapper: $("#introWrapper"),
-			introImg: $("#introWrapper img")
+			introWrapper: $("#introWrapper")
 		},
 
 		addEventHandlers = function() {
@@ -30,17 +29,21 @@ define(["jquery", "appDom", "challenge", "icons"], function($, appDom, challenge
 
 		hide = function() {
 
-			return dom.introImg.animate({width: 0, height: 0}, function() {
-
-				dom.introWrapper.hide();
-
-			});
+			return dom.introWrapper.transition({width: 0, height: 0}, 400);
 
 		},
 
 		show = function() {
+			
+			dom.introWrapper.transition({width: 318, height: 158}, 1000, function() {
 
-			dom.introImg.animate({width: 318, height: 158}, 800);
+				dom.introWrapper.transition({height: "+=20"}, 400, function() {
+
+					dom.introWrapper.find("p").transition({opacity: 1}, 400);
+
+				});
+
+			});
 
 		};
 

@@ -6,14 +6,13 @@ define(["jquery"], function($) {
 
 	api.init = function() {
 
-		$.ajax({
+		return $.ajax({
 			type: "GET",
 			url: "/app/data/players.json",
 			dataType: "json",
 			success: function(data) {
 
 				players = data;
-				console.log(players);
 
 			}
 		});
@@ -23,6 +22,12 @@ define(["jquery"], function($) {
 	api.getPlayers = function() {
 
 		return players;
+
+	};
+
+	api.getPlayer = function(id) {
+
+		return players[id];
 
 	};
 

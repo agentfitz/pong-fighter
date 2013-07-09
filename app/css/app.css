@@ -228,21 +228,97 @@ textarea {
   h2,
   h3 {
     page-break-after: avoid; } }
+* {
+  box-sizing: border-box; }
+
 html {
   background: black;
   color: white; }
 
-#introWrapper img {
+.center-xy-absolute {
   position: absolute;
-  width: 0;
-  height: 0;
   top: 50%;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%); }
 
+.center-xy-line-height:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; }
+
+#introWrapper {
+  overflow: hidden;
+  width: 0;
+  height: 0; }
+  #introWrapper img {
+    max-width: 100%; }
+  #introWrapper p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    opacity: 0; }
+
 #challengeWrapper {
-  display: none; }
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 50px;
+  bottom: 250px;
+  left: 50px; }
+
+#team1,
+#team2 {
+  padding: 50px;
+  position: relative; }
+
+#team1,
+#team2,
+#vs {
+  float: left;
+  width: 32%;
+  height: 100%;
+  overflow: hidden; }
+
+#vs {
+  text-align: center;
+  width: 36%; }
+  #vs > div {
+    color: red;
+    font-size: 15em;
+    display: inline-block;
+    vertical-align: middle; }
+
+.icon-entered {
+  border: 1px dashed white; }
+  .icon-entered#team1:before, .icon-entered#team2:before {
+    content: "drag and drop a player icon here";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%); }
 
 #iconWrapper {
-  display: none; }
+  display: none;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  left: 50px;
+  background: #999999; }
+  #iconWrapper ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+    #iconWrapper ul li {
+      float: left;
+      margin: 5px; }
+      #iconWrapper ul li:hover {
+        -webkit-transition: 200ms;
+        transition: 200ms;
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+        cursor: move; }

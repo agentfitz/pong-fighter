@@ -1,11 +1,17 @@
 #introWrapper {
+	overflow: hidden;
+	width: 0;
+	height: 0;
+
 	img {
-		position: absolute;
-		width: 0;
-		height: 0;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translateX(-50%) translateY(-50%);
-				transform: translateX(-50%) translateY(-50%);
+		max-width: 100%;
+		// opacity: 0;//temp
+	}
+
+	p {
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		opacity: 0;
 	}
 }

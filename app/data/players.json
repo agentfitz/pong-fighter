@@ -1,6 +1,6 @@
 [ 
     { 
-        "id": 1,
+        "id": 0,
         "name": "Evan Dull",
         "nicknames": [ 
             "The Carnivore",
@@ -10,7 +10,6 @@
             "Carnicles"
         ],
         "profile": "http://nicenicejpg.com/600/600",
-        "mug": "http://www.placehold.it/150x150",
         "email": "evandull@gmail.com",
         "teams": [ 
         ],
@@ -27,7 +26,6 @@
             "Fitzy"
         ],
         "profile": "http://nicenicejpg.com/600/600",
-        "mug": "http://www.placehold.it/150x150",
         "email": "bmfitzgerald3@gmail.com",
         "teams": [
             "Team Tall",

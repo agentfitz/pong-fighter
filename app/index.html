@@ -22,11 +22,18 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <div id="introWrapper"><img src="img/intro.jpg"></div>
+        <div id="introWrapper" class="center-xy-absolute">
+            <img src="img/intro.jpg" alt="">
+            <p>click anywhere to enter the arena</p>
+        </div>
 
-        <div id="challengeWrapper">versus markup goes here</div>
+        <div id="challengeWrapper">
+            <div id="team1"></div>
+            <div id="vs" class="center-xy-line-height"><div>VS</div></div>
+            <div id="team2"></div>
+        </div>
 
-        <div id="iconWrapper">read data file and generate icons here</div>
+        <div id="iconWrapper"></div>
 
         <script data-main="js/app" src="js/vendor/require-2.1.7.min.js"></script>
 
