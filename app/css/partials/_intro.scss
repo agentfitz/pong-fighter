@@ -13,5 +13,10 @@
 		padding: 0;
 		text-align: center;
 		opacity: 0;
+
+		a {
+			text-decoration: none;
+			color: $mainTxtClr;
+		}
 	}
 }
