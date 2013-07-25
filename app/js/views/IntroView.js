@@ -38,13 +38,13 @@ define([
 
 		runIntro: function() {
 
-			var $el = this.$el;
+			var self = this;
 
-			$el.transition({width: 318, height: 158}, 1000, function() {
+			self.$el.transition({width: 318, height: 158}, 1000, function() {
 
-				$el.transition({height: "+=20"}, 400, function() {
+				self.$el.transition({height: "+=20"}, 400, function() {
 
-					$el.find("p").transition({opacity: 1}, 400);
+					self.$("p").transition({opacity: 1}, 400);
 
 				});
 
