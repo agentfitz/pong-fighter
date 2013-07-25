@@ -1,11 +1,15 @@
 define([
+
 	"backbone",
 	"models/PlayerModel"
+
 ], function(Backbone, PlayerModel) {
 
 	var PlayersCollection = Backbone.Collection.extend({
 
-		model: PlayerModel
+		model: PlayerModel,
+
+		url: "/app/data/players.json"
 
 	});
 

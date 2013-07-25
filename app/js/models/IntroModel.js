@@ -6,10 +6,7 @@ define([
 
 	var IntroModel = Backbone.Model.extend({
 
-		defaults: {
-			imgPath: "/app/img/intro.jpg",
-			msg: "enter the arena"
-		}
+		url: "/app/data/intro.json"
 
 	});
 

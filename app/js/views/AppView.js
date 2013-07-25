@@ -1,9 +1,12 @@
 define([
 
+	"jquery",
 	"backbone",
-	"views/IntroView"
+	"views/IntroView",
+	"views/ChallengeView",
+	"views/IconsView"
 
-], function(Backbone, IntroView) {
+], function($, Backbone, IntroView, ChallengeView, IconsView) {
 
 	var AppView = Backbone.View.extend({
 
@@ -11,11 +14,7 @@ define([
 
 		initialize: function() {
 
-			this.introView = new IntroView();
-
-			this.$el.append(this.introView.el);
-
-			this.introView.runIntro();
+			new IntroView();
 
 			this.listenTo(Backbone, "intro:exit", this.loadArena);
 
@@ -23,7 +22,9 @@ define([
 
 		loadArena: function() {
 
-			console.log("loadArena() called from event listener for intro:exit");
+			new ChallengeView();
+
+			new IconsView();
 
 		}
 

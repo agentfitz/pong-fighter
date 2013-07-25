@@ -1,9 +1,0 @@
-{{! handlebars icons.hbs --output compiled\iconsTemplate.js --known getIconSrc --amd --knownOnly }}
-
-<ul>
-	{{#each this}}
-		<li class="icon" draggable="true">
-			<img src="{{getIconSrc email}}" alt="{{ name }}">
-		</li>
-	{{/each}}
-</ul>

@@ -3,15 +3,14 @@ define([
 	"jquery",
 	"backbone",
 	"introTemplate",
-	"models/IntroModel"
+	"models/IntroModel",
+	"jqueryTransit"
 
 ], function($, Backbone, introTemplate, IntroModel) {
 
 	var IntroView = Backbone.View.extend({
 
-		id: "introWrapper",
-
-		className: "center-xy-absolute",
+		el: "#introWrapper",
 
 		model: new IntroModel(),
 
@@ -21,13 +20,17 @@ define([
 
 		initialize: function() {
 
-			this.render();
+			this.listenTo(this.model, "change", this.render);
+
+			this.model.fetch();
 
 		},
 
 		render: function() {
 
 			this.$el.html(introTemplate(this.model.toJSON()));
+
+			this.runIntro();
 
 			return this;
 
@@ -41,7 +44,7 @@ define([
 
 				$el.transition({height: "+=20"}, 400, function() {
 
-					$el.find("p").transition({opacity: 1}, 400);
+					$el.$("p").transition({opacity: 1}, 400);
 
 				});
 
@@ -60,10 +63,6 @@ define([
 				Backbone.trigger("intro:exit");
 
 			});
-
-		},
-
-		close: function() {
 
 		}
 

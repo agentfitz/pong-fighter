@@ -9,7 +9,7 @@ require.config({
 		backbone: "vendor/backbone-min",
 		underscore: "vendor/underscore-min",
 		introTemplate: "templates/compiled/introTemplate",
-		iconsTemplate: "templates/compiled/iconsTemplate"
+		iconTemplate: "templates/compiled/iconTemplate"
 	},
 
 	shim: {
@@ -39,8 +39,7 @@ require.config({
 // Load the main app module to start the app
 require([
 
-	"views/AppView",
-	"jqueryTransit"
+	"views/AppView"
 
 ], function(AppView) {
 
