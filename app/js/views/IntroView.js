@@ -44,7 +44,7 @@ define([
 
 				$el.transition({height: "+=20"}, 400, function() {
 
-					$el.$("p").transition({opacity: 1}, 400);
+					$el.find("p").transition({opacity: 1}, 400);
 
 				});
 
