@@ -4,15 +4,24 @@ define([
 
 ], function(Backbone) {
 
-	var ChallengeMOdel = Backbone.Model.extend({
+	var ChallengeModel = Backbone.Model.extend({
 
 		defaults: {
-			team1: [],
-			team2: []
+			team1: {
+				profile: "http://www.placehold.it/600&text=player1"
+			},
+
+			team2: {
+				profile: "http://www.placehold.it/600&text=player2"
+			},
+
+			noPlayer: {
+				profile: "http://www.placehold.it/600&text=player"
+			}
 		}
 
 	});
 
-	return ChallengeMOdel;
+	return ChallengeModel;
 
 });

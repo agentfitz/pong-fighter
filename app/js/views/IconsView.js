@@ -16,15 +16,18 @@ define([
 		collection: new PlayersCollection(),
 
 		events: {
-			"dragstart .icon": "handleDragStart",
-			"dragend .icon": "handleDragEnd"
+			"dragstart img": "handleDragStart",
+			"dragend img": "handleDragEnd"
 		},
 
 		handleDragStart: function(e) {
 
+			var $target = $(e.target),
+				playerId = $target.attr("data-id");
+
 			e.originalEvent.dataTransfer.effectAllowed = "all";
 
-			e.originalEvent.dataTransfer.setData("text/plain", JSON.stringify(this.collection.get(0)));
+			e.originalEvent.dataTransfer.setData("text/plain", JSON.stringify(this.collection.get(playerId)));
 
 		},
 

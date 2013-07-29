@@ -39,10 +39,10 @@
 .icon-entered {
 	border: 1px dashed white;
 
-	&#team1:before,
-	&#team2:before {
-		content: "drag and drop a player icon here";
-		display: block;
-		@include center-xy-absolute;
-	}
+	// &#team1:before,
+	// &#team2:before {
+	// 	content: "drag and drop a player icon here";
+	// 	display: block;
+	// 	@include center-xy-absolute;
+	// }
 }

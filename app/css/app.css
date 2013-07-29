@@ -2108,14 +2108,6 @@ html {
 
 .icon-entered {
   border: 1px dashed white; }
-  .icon-entered#team1:before, .icon-entered#team2:before {
-    content: "drag and drop a player icon here";
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%); }
 
 #iconsWrapper {
   display: none;

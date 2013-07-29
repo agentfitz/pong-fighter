@@ -9,7 +9,8 @@ require.config({
 		backbone: "vendor/backbone-min",
 		underscore: "vendor/underscore-min",
 		introTemplate: "templates/compiled/introTemplate",
-		iconTemplate: "templates/compiled/iconTemplate"
+		iconTemplate: "templates/compiled/iconTemplate",
+		challengeTemplate: "templates/compiled/challengeTemplate"
 	},
 
 	shim: {
