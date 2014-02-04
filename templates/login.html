@@ -1,0 +1,17 @@
+<h1>Welcome to Superapp</h1>
+
+<form ng-submit="login()" ng-controller="LoginCtrl">
+
+	<p>
+		Username:
+		<input type="text" name="username" ng-model="credentials.username" required>
+	</p>
+
+	<p>
+		Password:
+		<input type="password" name="password" ng-model="credentials.password" required>
+	</p>
+
+	<input type="submit" value="Login">
+
+</form>
