@@ -1,12 +1,13 @@
 /* global define */
 
 define({
-	appName: 'PhoneBook',
+	appName: 'PongFighter',
 	appDir: '/js/app',
 	libDir: '/js/lib',
 	routes: {
 		'/contacts' : 'contact/Contact',
-		'/contact/:id' : 'contact/ContactDetail'
+		'/contact/:id' : 'contact/ContactDetail',
+		'/challenge': 'challenge/Challenge'
 	},
 	defaultRedirect: '/contacts'
 });
