@@ -7,17 +7,24 @@ require(['config'], function(config) {
 	require.config({
 		baseUrl: config.appDir,
 		paths: {
-			app: config.libDir + '/ng-app'
+			app: config.libDir + '/ng-app',
+			router: config.libDir + '/angular-ui-router.min'
 		}
 	});
 	
 	require(
 		[
 			'app',
-			'services/contactService'
+			'router',
+			'controllers/ChallengeCtrl',
+			'services/PlayerService'
 		],
 		function (app) {
+
+			console.log("bootstrap this mfer.");
 			angular.bootstrap(document, [app.name]);
-		});
+
+		}
+	);
 
 });

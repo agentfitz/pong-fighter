@@ -4,10 +4,9 @@ define({
 	appName: 'PongFighter',
 	appDir: '/js/app',
 	libDir: '/js/lib',
+	controllerSuffix: 'Ctrl',
 	routes: {
-		'/contacts' : 'contact/Contact',
-		'/contact/:id' : 'contact/ContactDetail',
-		'/challenge': 'challenge/Challenge'
+		'/challenge': 'challenge'
 	},
-	defaultRedirect: '/contacts'
+	defaultRedirect: '/challenge'
 });

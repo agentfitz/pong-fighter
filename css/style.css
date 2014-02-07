@@ -1,0 +1,17 @@
+html {
+  background: url(/img/bg/blackBg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+.player-list {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  -webkit-transform: translateX(-50%); }
+  .player-list li {
+    float: left;
+    margin: 0 5px 5px 0; }
+  .player-list li, .player-list img {
+    display: block; }
