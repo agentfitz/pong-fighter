@@ -8,7 +8,8 @@ require(['config'], function(config) {
 		baseUrl: config.appDir,
 		paths: {
 			app: config.libDir + '/ng-app',
-			router: config.libDir + '/angular-ui-router.min'
+			router: config.libDir + '/angular-ui-router.min',
+			modal: config.appDir + '/directives/modal-dialog'
 		}
 	});
 	
@@ -16,6 +17,7 @@ require(['config'], function(config) {
 		[
 			'app',
 			'router',
+			'modal',
 			'controllers/ChallengeCtrl',
 			'services/PlayerService'
 		],

@@ -18,6 +18,13 @@ define(["config"], function (config) {
 			templateUrl: "js/app/views/challenge/challenge.html"
 		});
 
+		$stateProvider.state("challenge.player-select", {
+			url: "/player-select",
+			templateUrl: "js/app/views/player-select.html"
+		});
+
+
+
 
 
 		$urlRouterProvider.otherwise("/challenge");

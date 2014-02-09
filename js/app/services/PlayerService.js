@@ -78,8 +78,50 @@ define(['app'], function (app) {
 						dominantHand: "right"
 					}
 				]
+			},
+
+			getParticipants: function(){
+
+				return [
+
+					{
+						idx: 0,
+						content: "+"
+					},
+					{
+						idx: 1,
+						content: "+"
+					},
+					{
+						idx: 2,
+						content: "+"
+					},
+					{
+						idx: 3,
+						content: "+"
+					}
+
+				]
 			}
 		};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	}]);
 });

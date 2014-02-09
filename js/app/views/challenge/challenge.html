@@ -1,5 +1,6 @@
 
 
+<!--
 <ul class="player-list" ng-controller="ChallengeCtrl">
 
 	<li ng-repeat="player in players">
@@ -7,3 +8,33 @@
 	</li>"
 
 </ul>
+-->
+
+<div ng-controller="ChallengeCtrl">
+
+	<div id="tableWrapper">
+
+		<div ng-repeat="participant in participants" ng-click="toggleModal()">
+			<a href="#" ng-click="updateActiveParticipant(participant.idx)">
+				{{ participant.content }}
+			</a>
+		</div>
+
+		<img id="table" src="/img/graphics/court.jpg">
+
+	</div>
+
+
+	<modal-dialog show="modalShown" width="750px" height="90%">
+		
+		<ul id="playerList" ng-repeat="player in players">
+			
+			<li ng-click="updateParticipant(player.id)">
+				<img ng-click="toggleModal()" ng-src="/img/players/mugshots/{{ player.id }}.jpg" height="130" width="130">
+			</li>
+
+		</ul>
+
+	</modal-dialog>
+
+</div>
