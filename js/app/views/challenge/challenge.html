@@ -14,13 +14,22 @@
 
 	<div id="tableWrapper">
 
-		<div ng-repeat="participant in participants" ng-click="toggleModal()">
-			<a href="#" ng-click="updateActiveParticipant(participant.idx)">
-				{{ participant.content }}
-			</a>
+		<div
+			class="add-wrapper"
+			ng-repeat="participant in participants"
+			ng-click="revealPlayerSelect(participant.idx)"
+			ng-bind-html="participant.content">
+			
+			{{ participant.content }}
+		
 		</div>
 
 		<img id="table" src="/img/graphics/court.jpg">
+
+		<div id="primaryBtnWrapper">
+			<a href="#" class="btn large">Issue Challenge</a>
+			<a href="#" class="btn large">Start Match</a>
+		</div>
 
 	</div>
 
@@ -29,8 +38,8 @@
 		
 		<ul id="playerList" ng-repeat="player in players">
 			
-			<li ng-click="updateParticipant(player.id)">
-				<img ng-click="toggleModal()" ng-src="/img/players/mugshots/{{ player.id }}.jpg" height="130" width="130">
+			<li ng-click="selectPlayer(player.id)">
+				<img ng-src="/img/players/mugshots/{{ player.id }}.jpg" height="130" width="130">
 			</li>
 
 		</ul>

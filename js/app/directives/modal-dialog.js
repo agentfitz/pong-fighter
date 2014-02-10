@@ -23,8 +23,12 @@ define(["app"], function(app){
 					scope.dialogStyle.height = attrs.height;					
 				}
 				
-				scope.hideModal = function() {					
+				scope.hideModal = function() {
 					scope.show = false;
+				};
+
+				scope.whatup = function(){
+					alert("whatup");
 				};
 
 			},

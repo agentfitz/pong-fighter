@@ -5,7 +5,7 @@ define(["config"], function (config) {
 	'use strict';
 
 
-	var app = angular.module(config.appName, ["ui.router"]);
+	var app = angular.module(config.appName, ["ui.router", "ngSanitize"]);
 
 	
 

@@ -6,7 +6,7 @@ define(['app'], function (app) {
 
 	'use strict';
 
-	app.controller('ChallengeCtrl', ['$scope', 'PlayerService', function ($scope, PlayerService) {
+	app.controller('ChallengeCtrl', ['$scope', 'PlayerService', '$sce', function ($scope, PlayerService, $sce) {
 		
 
 		$scope.players = PlayerService.getPlayers();
@@ -28,9 +28,17 @@ define(['app'], function (app) {
 		};
 
 		$scope.updateParticipant = function(playerId){
+			$scope.participants[$scope.activeParticipantIdx].content = $sce.trustAsHtml("<img src='/img/players/mugshots/" + playerId + ".jpg'>");
+		};
 
-			// $scope.participants[$scope.activeParticipantIdx].content = "<img src='/img/players/mugshot/1.jpg'>";
+		$scope.revealPlayerSelect = function(participantIdx){
+			$scope.updateActiveParticipant(participantIdx);
+			$scope.toggleModal();
+		};
 
+		$scope.selectPlayer = function(playerId){
+			$scope.updateParticipant(playerId);
+			$scope.toggleModal();
 		};
 
 
