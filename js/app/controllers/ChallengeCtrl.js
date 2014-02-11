@@ -13,11 +13,20 @@ define(['app'], function (app) {
 		$scope.participants = PlayerService.getParticipants();
 		$scope.activeParticipantIdx = undefined;
 
+		$scope.isEligibleMatch = function(){
+
+			var isEligible = false;
+
+			// hmmz. how to best check all these combos?
+
+			return false;
+
+		};
+
 
 		$scope.getParticipantMarkup = function(playerId){
 			return "<img src='/img/players/mugshots/" + playerId + ".jpg'>";
 		};
-
 
 		$scope.toggleModal = function(){
 			$scope.modalShown = !$scope.modalShown;
@@ -28,7 +37,16 @@ define(['app'], function (app) {
 		};
 
 		$scope.updateParticipant = function(playerId){
+
+			// need to use the angular $sce object to
+			// ensure angular renders injected mark up as html
+			// and not as an escaped string
+
 			$scope.participants[$scope.activeParticipantIdx].content = $sce.trustAsHtml("<img src='/img/players/mugshots/" + playerId + ".jpg'>");
+
+			$scope.participants[$scope.activeParticipantIdx].isActive = true;
+
+
 		};
 
 		$scope.revealPlayerSelect = function(participantIdx){

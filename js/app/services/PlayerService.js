@@ -86,19 +86,23 @@ define(['app'], function (app) {
 
 					{
 						idx: 0,
-						content: "+"
+						content: "+",
+						isActive: false
 					},
 					{
 						idx: 1,
-						content: "+"
+						content: "+",
+						isActive: false
 					},
 					{
 						idx: 2,
-						content: "+"
+						content: "+",
+						isActive: false
 					},
 					{
 						idx: 3,
-						content: "+"
+						content: "+",
+						isActive: false
 					}
 
 				]
