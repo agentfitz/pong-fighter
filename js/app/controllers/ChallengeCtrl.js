@@ -6,58 +6,40 @@ define(['app'], function (app) {
 
 	'use strict';
 
-	app.controller('ChallengeCtrl', ['$scope', 'PlayerService', '$sce', function ($scope, PlayerService, $sce) {
+	app.controller('ChallengeCtrl', ['$scope', 'PlayerService', '$location', function ($scope, PlayerService, $location) {
 		
 
 		$scope.players = PlayerService.getPlayers();
 		$scope.participants = PlayerService.getParticipants();
 		$scope.activeParticipantIdx = undefined;
 
-		$scope.isEligibleMatch = function(){
-
-			var isEligible = false;
-
-			// hmmz. how to best check all these combos?
-
-			return false;
-
-		};
 
 
-		$scope.getParticipantMarkup = function(playerId){
-			return "<img src='/img/players/mugshots/" + playerId + ".jpg'>";
-		};
+		// private
+		var getParticipantMarkup = function(playerId){
+				return "<img src='/img/players/mugshots/" + playerId + ".jpg'>";
+			},
 
-		$scope.toggleModal = function(){
-			$scope.modalShown = !$scope.modalShown;
-		};
+			updateActiveParticipant = function(participantIdx){
+				$scope.activeParticipantIdx = participantIdx;
+			},
 
-		$scope.updateActiveParticipant = function(participantIdx){
-			$scope.activeParticipantIdx = participantIdx;
-		};
-
-		$scope.updateParticipant = function(playerId){
-
-			// need to use the angular $sce object to
-			// ensure angular renders injected mark up as html
-			// and not as an escaped string
-
-			$scope.participants[$scope.activeParticipantIdx].content = $sce.trustAsHtml("<img src='/img/players/mugshots/" + playerId + ".jpg'>");
-
-			$scope.participants[$scope.activeParticipantIdx].isActive = true;
+			updateParticipant = function(playerId){
+				$scope.participants[$scope.activeParticipantIdx].content = getParticipantMarkup(playerId);
+			};
 
 
-		};
 
+		// api
 		$scope.revealPlayerSelect = function(participantIdx){
-			$scope.updateActiveParticipant(participantIdx);
-			$scope.toggleModal();
+			updateActiveParticipant(participantIdx);
+			$location.path("/player-select");
 		};
 
 		$scope.selectPlayer = function(playerId){
 			$scope.updateParticipant(playerId);
-			$scope.toggleModal();
 		};
+		
 
 
 	}]);
