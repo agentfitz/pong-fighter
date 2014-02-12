@@ -6,40 +6,30 @@ define(['app'], function (app) {
 
 	'use strict';
 
-	app.controller('ChallengeCtrl', ['$scope', 'PlayerService', '$location', function ($scope, PlayerService, $location) {
+	app.controller('ChallengeCtrl', ['$scope', 'PlayerService', 'ParticipantService', '$location', function ($scope, PlayerService, ParticipantService, $location) {
 		
 
 		$scope.players = PlayerService.getPlayers();
-		$scope.participants = PlayerService.getParticipants();
-		$scope.activeParticipantIdx = undefined;
-
-
-
-		// private
-		var getParticipantMarkup = function(playerId){
-				return "<img src='/img/players/mugshots/" + playerId + ".jpg'>";
-			},
-
-			updateActiveParticipant = function(participantIdx){
-				$scope.activeParticipantIdx = participantIdx;
-			},
-
-			updateParticipant = function(playerId){
-				$scope.participants[$scope.activeParticipantIdx].content = getParticipantMarkup(playerId);
-			};
+		$scope.participants = ParticipantService.getParticipants();
 
 
 
 		// api
 		$scope.revealPlayerSelect = function(participantIdx){
-			updateActiveParticipant(participantIdx);
+			ParticipantService.setActiveParticipantIdx(participantIdx);
 			$location.path("/player-select");
 		};
 
 		$scope.selectPlayer = function(playerId){
-			$scope.updateParticipant(playerId);
+
+			PlayerService.updatePlayer(playerId, {
+				isAvailable: false
+			});
+
+			ParticipantService.updateParticipant(ParticipantService.getActiveParticipantIdx(), playerId);
+			$location.path("/challenge");
+
 		};
-		
 
 
 	}]);

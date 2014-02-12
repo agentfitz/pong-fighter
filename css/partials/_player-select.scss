@@ -1,12 +1,24 @@
 
+#playerList {
+	text-align: center;
+}
+
 #playerList li {
 	
-	float: left;
-	margin: 0 12px 12px 0;
+	display: inline-block;
+	margin: 0 50px 50px 0;
+	border-radius: 95px;
+	overflow: hidden;
+	border: 3px solid #222;
+	box-shadow: 0 0 40px 10px #000;
 
 	img {
 		display: block;
 		cursor: pointer;
+	}
+
+	&.available-false {
+		opacity: .4;
 	}
 	
 }

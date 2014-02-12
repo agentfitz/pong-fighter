@@ -13,119 +13,95 @@ define(['app'], function (app) {
 		 * we have hard-coded the model here for simplicity's sake.
 		 */
 
+		var players = [
+				{
+					id: 1,
+					name: "Brian FitzGerald",
+					dominantHand: "left",
+					isAvailable: true,
+				},
+				{
+					id: 2,
+					name: "Evan Dull",
+					dominantHand: "right",
+					isAvailable: true,
+				},
+				{
+					id: 3,
+					name: "Kyle Hovis",
+					dominantHand: "right",
+					isAvailable: true,
+				},
+				{
+					id: 4,
+					name: "Paul Accattato",
+					dominantHand: "right",
+					isAvailable: true,
+				},
+				{
+					id: 5,
+					name: "Brian FitzGerald",
+					dominantHand: "left",
+					isAvailable: true,
+				},
+				{
+					id: 6,
+					name: "Evan Dull",
+					dominantHand: "right",
+					isAvailable: true,
+				},
+				{
+					id: 7,
+					name: "Kyle Hovis",
+					dominantHand: "right",
+					isAvailable: true,
+				},
+				{
+					id: 8,
+					name: "Paul Accattato",
+					dominantHand: "right",
+					isAvailable: true,
+				},
+				{
+					id: 9,
+					name: "Brian FitzGerald",
+					dominantHand: "left",
+					isAvailable: true,
+				},
+				{
+					id: 10,
+					name: "Evan Dull",
+					dominantHand: "right",
+					isAvailable: true,
+				},
+				{
+					id: 11,
+					name: "Kyle Hovis",
+					dominantHand: "right",
+					isAvailable: true,
+				},
+				{
+					id: 12,
+					name: "Paul Accattato",
+					dominantHand: "right",
+					isAvailable: true,
+				}
+			];
+
 		return {
 			
 			getPlayers: function(){
-				return [
-					{
-						id: 1,
-						name: "Brian FitzGerald",
-						dominantHand: "left"
-					},
-					{
-						id: 2,
-						name: "Evan Dull",
-						dominantHand: "right"
-					},
-					{
-						id: 3,
-						name: "Kyle Hovis",
-						dominantHand: "right"
-					},
-					{
-						id: 4,
-						name: "Paul Accattato",
-						dominantHand: "right"
-					},
-					{
-						id: 5,
-						name: "Brian FitzGerald",
-						dominantHand: "left"
-					},
-					{
-						id: 6,
-						name: "Evan Dull",
-						dominantHand: "right"
-					},
-					{
-						id: 7,
-						name: "Kyle Hovis",
-						dominantHand: "right"
-					},
-					{
-						id: 8,
-						name: "Paul Accattato",
-						dominantHand: "right"
-					},
-					{
-						id: 9,
-						name: "Brian FitzGerald",
-						dominantHand: "left"
-					},
-					{
-						id: 10,
-						name: "Evan Dull",
-						dominantHand: "right"
-					},
-					{
-						id: 11,
-						name: "Kyle Hovis",
-						dominantHand: "right"
-					},
-					{
-						id: 12,
-						name: "Paul Accattato",
-						dominantHand: "right"
-					}
-				]
+				return players;
 			},
 
-			getParticipants: function(){
+			updatePlayer: function(id, data){
 
-				return [
+				var player = _.findWhere(players, { id: id });
 
-					{
-						idx: 0,
-						content: "+",
-						isActive: false
-					},
-					{
-						idx: 1,
-						content: "+",
-						isActive: false
-					},
-					{
-						idx: 2,
-						content: "+",
-						isActive: false
-					},
-					{
-						idx: 3,
-						content: "+",
-						isActive: false
-					}
+				_.extend(player, data);
 
-				]
 			}
 		};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	}]);
 });

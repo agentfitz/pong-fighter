@@ -1,16 +1,8 @@
 
 
-<!--
-<ul class="player-list" ng-controller="ChallengeCtrl">
-
-	<li ng-repeat="player in players">
-		<img src="/img/players/mugshots/{{ player.id }}.jpg" height="100" width="100">
-	</li>"
-
-</ul>
--->
-
 <div ng-controller="ChallengeCtrl">
+
+	<h1>{{ activeIdx }}</h1>
 
 	<div id="tableWrapper">
 
@@ -26,7 +18,7 @@
 
 		<img id="table" src="/img/graphics/court.jpg">
 
-		<div id="primaryBtnWrapper" ng-class="{ active: isEligibleMatch() }">
+		<div id="primaryBtnWrapper">
 			<a href="#" class="btn large">Issue Challenge</a>
 			<a href="#" class="btn large">Start Match</a>
 		</div>

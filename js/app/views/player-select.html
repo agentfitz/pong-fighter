@@ -1,13 +1,16 @@
-<!-- <modal-dialog show="modalShown" width="750px" height="90%">
-	
-	<ul id="playerList" ng-repeat="player in players">
+
+<div ng-controller="ChallengeCtrl">
+
+	<h1>{{ activeIdx }}</h1>
+
+	<h1>Choose your Fighter</h1>
+
+	<ul id="playerList">
 		
-		<li ng-click="selectPlayer(player.id)">
-			<img ng-src="/img/players/mugshots/{{ player.id }}.jpg" height="130" width="130">
+		<li ng-repeat="player in players" ng-click="selectPlayer(player.id)" class="available-{{ player.isAvailable }}">
+			<img ng-src="/img/players/mugshots/{{ player.id }}.jpg" height="170" width="170">
 		</li>
 
 	</ul>
 
-</modal-dialog> -->
-
-<h1>Player Select</h1>
+</div>
