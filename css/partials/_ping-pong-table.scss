@@ -1,0 +1,31 @@
+
+// $tableColor: #58a384;
+$tableColor: rgba(88, 163, 132, .9);
+$lineWidth: 9px;
+
+#pingPongTable {
+	width: 900px;
+	height: 500px;
+	// background: #58a384;
+	background: radial-gradient($tableColor, darken($tableColor, 15%), darken($tableColor, 30%));
+	position: relative;
+	box-shadow: 0 0 0 $lineWidth #eee;
+}
+
+#courtLine {
+	position: absolute;
+	height: $lineWidth;
+	width: 100%;
+	background: #eee;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+}
+
+#netLine {
+	position: absolute;
+	width: $lineWidth;
+	height: 100%;
+	background: #eee;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+}

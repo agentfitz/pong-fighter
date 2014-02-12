@@ -10,7 +10,7 @@ require(['config'], function(config) {
 			app: config.libDir + '/ng-app',
 			router: config.libDir + '/angular-ui-router.min',
 			sanitize: config.libDir + '/angular-sanitize.min',
-			modal: config.appDir + '/directives/modal-dialog',
+			pingPongTable: config.appDir + '/directives/ping-pong-table',
 			underscore: config.libDir + '/underscore-min'
 		}
 	});
@@ -20,7 +20,7 @@ require(['config'], function(config) {
 			'app',
 			'router',
 			'sanitize',
-			'modal',
+			'pingPongTable',
 			'controllers/ChallengeCtrl',
 			'services/PlayerService',
 			'services/ParticipantService',

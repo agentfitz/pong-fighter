@@ -2,12 +2,10 @@
 
 <div ng-controller="ChallengeCtrl">
 
-	<h1>{{ activeIdx }}</h1>
-
 	<div id="tableWrapper">
 
 		<div
-			class="add-wrapper"
+			class="add add-wrapper-{{ participant.idx }}"
 			ng-repeat="participant in participants"
 			ng-click="revealPlayerSelect(participant.idx)"
 			ng-bind-html="participant.content">
@@ -16,7 +14,7 @@
 		
 		</div>
 
-		<img id="table" src="/img/graphics/court.jpg">
+		<ping-pong-table></ping-pong-table>
 
 		<div id="primaryBtnWrapper">
 			<a href="#" class="btn large">Issue Challenge</a>

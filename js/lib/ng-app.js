@@ -15,7 +15,7 @@ define(["config"], function (config) {
 
 		$stateProvider.state("challenge", {
 			url: "/challenge",
-			templateUrl: "js/app/views/challenge/challenge.html"
+			templateUrl: "js/app/views/challenge.html"
 		});
 
 		$stateProvider.state("player-select", {

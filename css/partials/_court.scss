@@ -7,7 +7,7 @@
 	top: 50%;
 	-webkit-transform: translateX(-50%) translateY(-50%);
 
-	.add-wrapper {
+	.add {
 
 		font-size: 125px;
 		line-height: 97px;
@@ -29,22 +29,22 @@
 		}
 	}
 
-	div:nth-child(1) {
+	.add-wrapper-0 {
 		top: -50px;
 		left: -50px;
 	}
 
-	div:nth-child(2) {
+	.add-wrapper-1 {
 		top: -50px;
 		right: -50px;
 	}
 
-	div:nth-child(3) {
+	.add-wrapper-2 {
 		bottom: -50px;
 		left: -50px;
 	}
 
-	div:nth-child(4) {
+	.add-wrapper-3 {
 		bottom: -50px;
 		right: -50px;
 	}
