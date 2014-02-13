@@ -2,11 +2,10 @@
 define(["app"], function(app){
 
 
-	app.directive('pingPongTable', function() {
+	app.directive('controlBar', function() {
 		
 		return {
 			restrict: 'E',
-			scope: {},
 			replace: true, // Replace with the template below
 			// transclude: true, // we want to insert custom content inside the directive
 			link: function(scope, element, attrs) {
@@ -15,7 +14,7 @@ define(["app"], function(app){
 
 			},
 
-			templateUrl: 'js/app/directives/templates/ping-pong-table.html'
+			templateUrl: 'js/app/directives/templates/control-bar.html'
 
 		};
 

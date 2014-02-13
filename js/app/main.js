@@ -11,6 +11,7 @@ require(['config'], function(config) {
 			router: config.libDir + '/angular-ui-router.min',
 			sanitize: config.libDir + '/angular-sanitize.min',
 			pingPongTable: config.appDir + '/directives/ping-pong-table',
+			controlBar: config.appDir + '/directives/control-bar',
 			underscore: config.libDir + '/underscore-min'
 		}
 	});
@@ -21,9 +22,12 @@ require(['config'], function(config) {
 			'router',
 			'sanitize',
 			'pingPongTable',
+			'controlBar',
 			'controllers/ChallengeCtrl',
 			'services/PlayerService',
 			'services/ParticipantService',
+			'services/AudioService',
+			'services/UtilService',
 			'underscore'
 		],
 		function (app) {

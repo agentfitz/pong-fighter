@@ -1,11 +1,11 @@
 
 // $tableColor: #58a384;
 $tableColor: rgba(88, 163, 132, .9);
-$lineWidth: 9px;
+$lineWidth: 6px;
 
 #pingPongTable {
-	width: 900px;
-	height: 500px;
+	width: 630px;
+	height: 350px;
 	// background: #58a384;
 	background: radial-gradient($tableColor, darken($tableColor, 15%), darken($tableColor, 30%));
 	position: relative;

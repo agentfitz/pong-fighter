@@ -18,6 +18,10 @@ h1 {
   color: #fff;
   font-size: 4.0rem; }
 
+i {
+  font-family: FontAwesome;
+  font-style: normal; }
+
 #tableWrapper {
   position: absolute;
   left: 50%;
@@ -85,15 +89,15 @@ h1 {
     border-radius: 10px; }
 
 #pingPongTable {
-  width: 900px;
-  height: 500px;
+  width: 630px;
+  height: 350px;
   background: radial-gradient(rgba(88, 163, 132, 0.9), rgba(61, 113, 92, 0.9), rgba(34, 64, 52, 0.9));
   position: relative;
-  box-shadow: 0 0 0 9px #eeeeee; }
+  box-shadow: 0 0 0 6px #eeeeee; }
 
 #courtLine {
   position: absolute;
-  height: 9px;
+  height: 6px;
   width: 100%;
   background: #eee;
   top: 50%;
@@ -101,11 +105,15 @@ h1 {
 
 #netLine {
   position: absolute;
-  width: 9px;
+  width: 6px;
   height: 100%;
   background: #eee;
   left: 50%;
   -webkit-transform: translateX(-50%); }
+
+#controlBar i {
+  color: #555;
+  font-size: 3.0rem; }
 
 #playerList {
   text-align: center; }
