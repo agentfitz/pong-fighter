@@ -108,14 +108,17 @@ i {
   text-align: center;
   width: 200px;
   border-radius: 10px;
-  cursor: pointer; }
+  cursor: pointer;
+  text-shadow: 1px 0 1px #000; }
   .btn:hover {
     background: -webkit-linear-gradient(top, #22709b, #1b587a); }
   .btn.large {
     padding: 25px;
     font-size: 2.7rem; }
-  .btn.inactive {
-    cursor: default; }
+
+.inactive .btn, .btn.inactive {
+  cursor: default;
+  text-shadow: none; }
 
 #pingPongTable {
   width: 630px;

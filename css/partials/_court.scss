@@ -132,6 +132,7 @@
 	width: 200px;
 	border-radius: 10px;
 	cursor: pointer;
+	text-shadow: 1px 0 1px #000;
 
 	&:hover {
 		background: -webkit-linear-gradient(top, lighten($activeBtnBg, 8%), $activeBtnBg);	
@@ -142,9 +143,13 @@
 		font-size: 2.7rem;
 	}
 
-	&.inactive {
-		cursor: default;
-	}
+}
+
+.inactive .btn, .btn.inactive {
+	
+	cursor: default;
+	text-shadow: none;	
+
 }
 
 

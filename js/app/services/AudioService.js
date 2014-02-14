@@ -60,9 +60,9 @@ define(["app"], function (app) {
 
 		api.muteSounds = function(){
 
-			_.each(soundQueue, function(i, el){
+			_.each(soundQueue, function(sound, i){
 
-				i.pause();
+				sound.pause();
 
 			});
 

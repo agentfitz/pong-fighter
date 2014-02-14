@@ -39,7 +39,6 @@ require(['config'], function(config) {
 		],
 		function (app) {
 
-			console.log("bootstrap this mfer.");
 			angular.bootstrap(document, [app.name]);
 
 		}
