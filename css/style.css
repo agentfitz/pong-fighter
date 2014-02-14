@@ -9,6 +9,9 @@ html {
   background-size: cover;
   font-size: 62.5%; }
 
+body {
+  overflow: hidden; }
+
 ul, li {
   margin: 0;
   padding: 0;
@@ -64,29 +67,55 @@ i {
   top: 50%;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%);
-  border: 4px solid #444;
-  border-radius: 14px; }
+  border-radius: 18px; }
+  #primaryBtnWrapper a {
+    border: 1px solid #15435d;
+    color: #eeeeee;
+    background: -webkit-linear-gradient(top, #20678f, #1b587a);
+    text-transform: uppercase;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3); }
+    #primaryBtnWrapper a:hover {
+      background: -webkit-linear-gradient(top, #22709b, #1b587a); }
   #primaryBtnWrapper a:first-child {
-    border-bottom: 1px solid #444;
+    margin-bottom: 90px; }
+  #primaryBtnWrapper.inactive .btn {
+    border: 1px solid #2b5041;
+    color: #4f9277;
+    background: #34614e; }
+
+.match-setup .btn-group {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  box-shadow: 0 0 100px 30px rgba(0, 0, 0, 0.9); }
+
+.btn-group.vertical {
+  border-radius: 10px; }
+  .btn-group.vertical .btn {
+    border-radius: 0;
+    border-bottom: 1px solid #123a50; }
+  .btn-group.vertical .btn:first-child {
     border-radius: 10px 10px 0 0; }
-  #primaryBtnWrapper a:last-child {
+  .btn-group.vertical .btn:last-child {
     border-radius: 0 0 10px 10px; }
-  #primaryBtnWrapper .btn {
-    opacity: .4; }
-  #primaryBtnWrapper.active .btn {
-    opacity: 1; }
 
 .btn {
-  background: #333;
+  background: -webkit-linear-gradient(top, #20678f, #1b587a);
   color: #fff;
   text-decoration: none;
   display: block;
   text-align: center;
-  width: 200px; }
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer; }
+  .btn:hover {
+    background: -webkit-linear-gradient(top, #22709b, #1b587a); }
   .btn.large {
     padding: 25px;
-    font-size: 2.0rem;
-    border-radius: 10px; }
+    font-size: 2.7rem; }
+  .btn.inactive {
+    cursor: default; }
 
 #pingPongTable {
   width: 630px;
@@ -99,7 +128,7 @@ i {
   position: absolute;
   height: 6px;
   width: 100%;
-  background: #eee;
+  background: #eeeeee;
   top: 50%;
   -webkit-transform: translateY(-50%); }
 
@@ -107,13 +136,19 @@ i {
   position: absolute;
   width: 6px;
   height: 100%;
-  background: #eee;
+  background: #eeeeee;
   left: 50%;
   -webkit-transform: translateX(-50%); }
 
-#controlBar i {
-  color: #555;
-  font-size: 3.0rem; }
+#controlBar {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  z-index: 1; }
+  #controlBar i {
+    color: #555;
+    font-size: 3.0rem;
+    cursor: pointer; }
 
 #playerList {
   text-align: center; }

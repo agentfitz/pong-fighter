@@ -1,6 +1,7 @@
 
 
-<div ng-controller="ChallengeCtrl">
+<div ng-controller="ChallengeCtrl" ng-init="on=true">
+
 
 	<div id="tableWrapper">
 
@@ -16,10 +17,7 @@
 
 		<ping-pong-table></ping-pong-table>
 
-		<div id="primaryBtnWrapper">
-			<a href="#" class="btn large">Issue Challenge</a>
-			<a href="#" class="btn large">Start Match</a>
-		</div>
+		<match-buttons></match-buttons>
 
 
 	</div>

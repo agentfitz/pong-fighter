@@ -2,9 +2,15 @@
 
 #controlBar {
 
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	z-index: 1;
+
 	i {
 		color: #555;
 		font-size: 3.0rem;
+		cursor: pointer;
 	}
 
 }

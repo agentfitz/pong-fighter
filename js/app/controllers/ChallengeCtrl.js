@@ -1,7 +1,5 @@
 /* global define */
 
-console.log("ChallengeCtrl loading");
-
 define(['app'], function (app) {
 
 	'use strict';
@@ -27,21 +25,23 @@ define(['app'], function (app) {
 
 		) {
 
-
-		var soundIconStop = "fa-times-circle-o",
-			soundIconPlay = "fa-toggle-right";
+		var soundIconStop = "fa-volume-up",
+			soundIconPlay = "fa-volume-off";
 
 
 		$scope.players = PlayerService.getPlayers();
 		$scope.participants = ParticipantService.getParticipants();
-		$scope.soundIcon = soundIconStop;
+		$scope.soundIcon = AudioService.getIsSoundMuted() ? soundIconPlay : soundIconStop;
+		$scope.isValidMatch = ParticipantService.isValidMatch();
 
-
-		AudioService.startSoundtrack();
-
+		$scope.toggle = true;
+			
+		AudioService.init();
 
 		// api
+
 		$scope.revealPlayerSelect = function(participantIdx){
+			AudioService.playSound("add");
 			ParticipantService.setActiveParticipantIdx(participantIdx);
 			$location.path("/player-select");
 		};
@@ -55,26 +55,26 @@ define(['app'], function (app) {
 			AudioService.playSound("outstanding");
 
 			ParticipantService.updateParticipant(ParticipantService.getActiveParticipantIdx(), playerId);
+
 			$location.path("/challenge");
 
 		};
 
 		$scope.toggleSound = function(){
 
-			if(AudioService.isSoundtrackPlaying){
-
-				AudioService.muteSounds();
-				$scope.soundIcon = soundIconPlay;
-
-			}
-
-			else {
+			if(AudioService.getIsSoundMuted()){
 
 				AudioService.startSoundtrack();
 				$scope.soundIcon = soundIconStop;
 
 			}
 
+			else {
+
+				AudioService.muteSounds();
+				$scope.soundIcon = soundIconPlay;
+
+			}
 
 		};
 

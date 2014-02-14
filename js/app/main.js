@@ -7,28 +7,35 @@ require(['config'], function(config) {
 	require.config({
 		baseUrl: config.appDir,
 		paths: {
+			jquery: config.libDir + '/jquery.min',
 			app: config.libDir + '/ng-app',
 			router: config.libDir + '/angular-ui-router.min',
 			sanitize: config.libDir + '/angular-sanitize.min',
-			pingPongTable: config.appDir + '/directives/ping-pong-table',
-			controlBar: config.appDir + '/directives/control-bar',
+			animate: config.libDir + '/angular-animate.min',
 			underscore: config.libDir + '/underscore-min'
 		}
 	});
 	
 	require(
 		[
+
+			// lib
 			'app',
+			'jquery',
 			'router',
 			'sanitize',
-			'pingPongTable',
-			'controlBar',
+			'animate',
+			'underscore',
+
+			// app
+			'directives/ping-pong-table',
+			'directives/match-buttons',
+			'directives/control-bar',
 			'controllers/ChallengeCtrl',
 			'services/PlayerService',
 			'services/ParticipantService',
 			'services/AudioService',
-			'services/UtilService',
-			'underscore'
+			'services/UtilService'
 		],
 		function (app) {
 

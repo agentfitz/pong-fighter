@@ -5,7 +5,7 @@ define(["config"], function (config) {
 	'use strict';
 
 
-	var app = angular.module(config.appName, ["ui.router", "ngSanitize"]);
+	var app = angular.module(config.appName, ["ui.router", "ngSanitize", "ngAnimate"]);
 
 	
 
@@ -21,6 +21,11 @@ define(["config"], function (config) {
 		$stateProvider.state("player-select", {
 			url: "/player-select",
 			templateUrl: "js/app/views/player-select.html"
+		});
+
+		$stateProvider.state("match-setup", {
+			url: "/match-setup",
+			templateUrl: "js/app/views/match-setup.html"
 		});
 
 

@@ -10,6 +10,12 @@ define(["app"], function (app) {
 
 		var api = {},
 
+			state = {
+
+				isSoundtrackPlaying: false
+
+			},
+
 			soundQueue = [],
 
 			audioPath = "/media/audio/",
@@ -17,31 +23,38 @@ define(["app"], function (app) {
 			audioExtension = ".mp3";
 
 
-		api.isSoundtrackPlaying = false;
+		api.hasBeenInit = function(){
+
+			return localStorage.getItem("isSoundMuted") !== null;
+
+		};
 
 
 		api.playSound = function(file, isLooping){
 
-			var sound = new Audio(audioPath + file + audioExtension),
+			var sound, isLoop;
+
+			if(!api.getIsSoundMuted()){
+
+				sound = new Audio(audioPath + file + audioExtension),
 				isLoop = typeof isLooping !== "undefined" ? isLooping : false;
 
-			sound.loop = isLoop;
-			sound.play();
+				sound.loop = isLoop;
+				sound.play();
 
-			soundQueue.push(sound);
+				soundQueue.push(sound);
+
+			}
 
 		};
 
 		api.startSoundtrack = function(){
 
-			
-			if(!api.isSoundtrackPlaying){
+			api.setIsSoundMuted(false);
 
-				api.playSound("ambience1", true);
-				api.isSoundtrackPlaying = true;
+			api.playSound("ambience1", true);
 
-			}
-
+			state.isSoundtrackPlaying = true;	
 
 		};
 
@@ -53,15 +66,46 @@ define(["app"], function (app) {
 
 			});
 
-			api.isSoundtrackPlaying = false;
+			state.isSoundtrackPlaying = false;
+			api.setIsSoundMuted(true);
 
 		};
 
+		api.setIsSoundMuted = function(val){
+
+			localStorage.setItem("isSoundMuted", val);
+
+		};
+
+		api.getIsSoundMuted = function(){
+
+			return localStorage.getItem("isSoundMuted") === "true";
+
+		};
+
+		api.init = function(){			
+
+			if(api.hasBeenInit()){
+
+				if(!api.getIsSoundMuted() && !state.isSoundtrackPlaying) {
+
+					api.startSoundtrack();
+
+				}
+
+			}
+
+			else {
+
+				api.startSoundtrack();
+
+			}
+
+		};
 
 		return api;
 
 
 	});
-
 
 });
