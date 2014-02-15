@@ -5,7 +5,7 @@ define(['app'], function (app) {
 
 	'use strict';
 
-	app.factory('ParticipantService', ['$http', 'UtilService', function ($http, UtilService) {
+	app.factory('MatchService', ['$http', 'UtilService', function ($http, UtilService) {
 
 		/**
 		 * Essentially the data (model) will be retrieved from server
@@ -14,35 +14,47 @@ define(['app'], function (app) {
 		 */
 
 		var api = {},
-			activeParticipantIdx = 0,
-			participants = [
 
-				{
-					idx: 0,
-					content: "+",
-					isActive: false,
-					playerId: 0
-				},
-				{
-					idx: 1,
-					content: "+",
-					isActive: false,
-					playerId: 0
-				},
-				{
-					idx: 2,
-					content: "+",
-					isActive: false,
-					playerId: 0
-				},
-				{
-					idx: 3,
-					content: "+",
-					isActive: false,
-					playerId: 0
-				}
+			match = {
 
-			],
+				maxGames: 0,
+
+				participants: [
+
+					{
+						idx: 0,
+						content: "+",
+						isActive: false,
+						playerId: 0
+					},
+					{
+						idx: 1,
+						content: "+",
+						isActive: false,
+						playerId: 0
+					},
+					{
+						idx: 2,
+						content: "+",
+						isActive: false,
+						playerId: 0
+					},
+					{
+						idx: 3,
+						content: "+",
+						isActive: false,
+						playerId: 0
+					}
+
+				],
+
+				games: []
+
+			},
+			
+			state = {
+				activeParticipantIdx: 0
+			},
 
 			getParticipantMarkup = function(playerId){
 				
@@ -54,7 +66,7 @@ define(['app'], function (app) {
 
 				var numParticipants = 0;
 
-				_.each(participants, function(participant, i){
+				_.each(match.participants, function(participant, i){
 
 					if(UtilService.isOdd(i + 1) && participant.playerId){
 						numParticipants++;
@@ -70,7 +82,7 @@ define(['app'], function (app) {
 
 				var numParticipants = 0;
 
-				_.each(participants, function(participant, i){
+				_.each(match.participants, function(participant, i){
 
 					if(UtilService.isEven(i + 1) && participant.playerId){
 						numParticipants++;
@@ -99,7 +111,7 @@ define(['app'], function (app) {
 				var numParticipants = 0,
 					valid = false;
 
-				_.each(participants, function(participant, el){
+				_.each(match.participants, function(participant, el){
 
 					if(participant.playerId){
 						numParticipants++;
@@ -118,33 +130,75 @@ define(['app'], function (app) {
 
 		
 
+
+			// public api
 			api.getActiveParticipantIdx = function(){
 
-				return activeParticipantIdx;
+				return state.activeParticipantIdx;
 
 			};
 
 			api.setActiveParticipantIdx = function(idx){
 
-				activeParticipantIdx = idx;
+				state.activeParticipantIdx = idx;
 
 			};
 
 			api.getParticipants = function(){
 
-				return participants;
+				return match.participants;
 			};
 
 			api.updateParticipant = function(idx, playerId){
 
-				participants[idx].playerId = playerId;
-				participants[idx].content = getParticipantMarkup(playerId);
+				match.participants[idx].playerId = playerId;
+				match.participants[idx].content = getParticipantMarkup(playerId);
 
 			};
 
 			api.isValidMatch = function(){				
 
 				return isValidSinglesMatch() || isValidDoublesMatch();
+
+			};
+
+			api.saveGame = function(obj){
+
+				var game = {};
+
+				_.extend(game, obj);
+
+				match.games.push(game);
+
+			};
+
+			api.getActiveMatch = function(){
+
+				return match;
+
+			};
+
+			api.getNumWins = function(teamId){
+
+				var numWins = 0;
+
+				_.each(match.games, function(game, i){
+
+					if(game.winner === teamId) {
+
+						numWins++;
+
+					}
+
+				});
+
+				return numWins;
+
+			};
+
+			api.init = function(obj){
+
+				_.extend(match, obj);
 
 			};
 		

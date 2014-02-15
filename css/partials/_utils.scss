@@ -1,0 +1,26 @@
+	
+.auto-center {
+	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+
+}
+
+.auto-center-horizontal {
+
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+
+}
+
+
+.auto-center-vertical {
+
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+
+}

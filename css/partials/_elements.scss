@@ -2,6 +2,9 @@
 
 * {
 	font-family: 'Pathway Gothic One', sans-serif;
+	// font-family: 'Londrina Sketch', sans-serif;
+	// font-family: 'Permanent Marker', sans-serif;
+	// font-family: 'Architects Daughter', sans-serif;
 }
 
 html {
@@ -11,10 +14,15 @@ html {
 	-o-background-size: cover;
 	background-size: cover;
 	font-size: 62.5%;
+	text-transform: uppercase;
 }
 
 body {
 	overflow: hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: #fff;
 }
 
 ul,li {

@@ -33,7 +33,7 @@ require(['config'], function(config) {
 			'directives/control-bar',
 			'controllers/ChallengeCtrl',
 			'services/PlayerService',
-			'services/ParticipantService',
+			'services/MatchService',
 			'services/AudioService',
 			'services/UtilService'
 		],

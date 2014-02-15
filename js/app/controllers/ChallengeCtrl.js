@@ -10,7 +10,7 @@ define(['app'], function (app) {
 		'$scope',
 		'$location',
 		'PlayerService',
-		'ParticipantService',
+		'MatchService',
 		'AudioService',
 		'UtilService',
 
@@ -19,7 +19,7 @@ define(['app'], function (app) {
 			$scope,
 			$location,
 			PlayerService,
-			ParticipantService,
+			MatchService,
 			AudioService,
 			UtilService
 
@@ -30,19 +30,29 @@ define(['app'], function (app) {
 
 
 		$scope.players = PlayerService.getPlayers();
-		$scope.participants = ParticipantService.getParticipants();
+		$scope.participants = MatchService.getParticipants();
 		$scope.soundIcon = AudioService.getIsSoundMuted() ? soundIconPlay : soundIconStop;
-		$scope.isValidMatch = ParticipantService.isValidMatch();
+		$scope.isValidMatch = MatchService.isValidMatch();
+		$scope.showLoserPoints = false;
+		$scope.loserPoints = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+		$scope.team1Wins = MatchService.getNumWins(1);
+		$scope.team2Wins = MatchService.getNumWins(2);
+		$scope.match = MatchService.getActiveMatch();
 
-		$scope.toggle = true;
+
+
 			
 		AudioService.init();
+
+
+
+
 
 		// api
 
 		$scope.revealPlayerSelect = function(participantIdx){
 			AudioService.playSound("add");
-			ParticipantService.setActiveParticipantIdx(participantIdx);
+			MatchService.setActiveParticipantIdx(participantIdx);
 			$location.path("/player-select");
 		};
 
@@ -54,9 +64,49 @@ define(['app'], function (app) {
 
 			AudioService.playSound("outstanding");
 
-			ParticipantService.updateParticipant(ParticipantService.getActiveParticipantIdx(), playerId);
+			MatchService.updateParticipant(MatchService.getActiveParticipantIdx(), playerId);
 
 			$location.path("/challenge");
+
+		};
+
+		$scope.revealLoserPoints = function(winningTeamId, losingTeamId){
+
+			$scope.showLoserPoints = true;
+			$scope.gameWinner = winningTeamId;
+			$scope.gameLoser = losingTeamId;
+
+		};
+
+		$scope.initMatch = function(maxGames){
+
+			MatchService.init({
+				maxGames: maxGames,
+				games: []
+			});
+
+		};
+
+		$scope.saveGame = function(losingScore){
+
+			var game = {},
+				winningScore = losingScore < 10 ? 11 : losingScore + 2;
+
+			$scope.showLoserPoints = false;
+
+
+			MatchService.saveGame({
+				winner: $scope.gameWinner, 
+				loser: $scope.gameLoser, 
+				winningScore: winningScore,
+				losingScore: losingScore
+			});
+
+
+			$scope.team1Wins = MatchService.getNumWins(1);
+			$scope.team2Wins = MatchService.getNumWins(2);
+
+
 
 		};
 

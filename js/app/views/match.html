@@ -1,0 +1,42 @@
+
+
+<div ng-controller="ChallengeCtrl" class="match-setup">
+
+
+	<div id="matchInfo" class="auto-center-horizontal">
+
+		<h1>Game 1 of {{ match.maxGames }}</h1>
+
+		<h2>{{ team1Wins }} &ndash; {{ team2Wins }}</h2>
+
+		<div class="btn-group horizontal">
+
+			<a class="btn large" ng-click="revealLoserPoints(1, 2)">Winner</a>
+			<a class="btn large" ng-click="revealLoserPoints(2, 1)">Winner</a>
+
+		</div>
+
+	</div>
+
+	<img src="/img/players/profile/cinthia.png" height="1000" style="position: absolute;">
+	<img src="/img/players/profile/brian.png" height="1000" style="position: absolute; -webkit-transform: scaleX(-1); right: 0;">
+
+
+	
+
+	<div id="loserPoints" ng-if="showLoserPoints" class="team-{{ gameLoser }}">
+
+		<h1>What was the losing team's score?</h1>
+
+		<ul id="pointList">
+
+			<li ng-repeat="points in loserPoints" class="loser-point">
+				<a ng-click="saveGame(points)">{{ points }}</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+
+</div>

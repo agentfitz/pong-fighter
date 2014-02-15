@@ -1,0 +1,81 @@
+
+
+.btn {
+
+	background: -webkit-linear-gradient(top, lighten($activeBtnBg, 5%), $activeBtnBg);
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	width: 200px;
+	border-radius: 10px;
+	cursor: pointer;
+	text-shadow: 1px 0 1px #000;
+
+	&:hover {
+		background: -webkit-linear-gradient(top, lighten($activeBtnBg, 8%), $activeBtnBg);	
+	}
+
+	&.large {
+		padding: 25px;
+		font-size: 2.7rem;
+	}
+
+}
+
+.inactive .btn, .btn.inactive {
+	
+	cursor: default;
+	text-shadow: none;	
+
+}
+
+
+
+
+.btn-group {
+
+	&.vertical {
+
+		border-radius: 10px;
+
+		.btn {
+			border-radius: 0;
+			border-bottom: 1px solid darken($activeBtnBg, 10%);
+		}
+
+		.btn:first-child {
+			border-radius: 10px 10px 0 0;
+		}
+
+		.btn:last-child {
+			border-radius: 0 0 10px 10px;
+			border-bottom: 0;
+		}
+
+	}
+
+	&.horizontal {
+
+		border-radius: 10px;
+
+		.btn {
+			display: block;
+			float: left;
+			border-radius: 0;
+			border-right: 1px solid darken($activeBtnBg, 10%);
+		}
+
+		.btn:first-child {
+			border-radius: 10px 0 0 10px;
+		}
+
+		.btn:last-child {
+			border-radius: 0 10px 10px 0;
+			border-right: 0;
+		}
+
+	}
+
+
+}

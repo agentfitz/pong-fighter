@@ -28,6 +28,11 @@ define(["config"], function (config) {
 			templateUrl: "js/app/views/match-setup.html"
 		});
 
+		$stateProvider.state("match", {
+			url: "/match",
+			templateUrl: "js/app/views/match.html"
+		});
+
 
 
 

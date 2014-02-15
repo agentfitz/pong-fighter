@@ -1,3 +1,19 @@
+.auto-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%); }
+
+.auto-center-horizontal {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%); }
+
+.auto-center-vertical {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%); }
+
 * {
   font-family: 'Pathway Gothic One', sans-serif; }
 
@@ -7,10 +23,14 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  text-transform: uppercase; }
 
 body {
   overflow: hidden; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff; }
 
 ul, li {
   margin: 0;
@@ -63,10 +83,6 @@ i {
     opacity: .7; }
 
 #primaryBtnWrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
   border-radius: 18px; }
   #primaryBtnWrapper a {
     border: 1px solid #15435d;
@@ -82,43 +98,6 @@ i {
     border: 1px solid #2b5041;
     color: #4f9277;
     background: #34614e; }
-
-.match-setup .btn-group {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  box-shadow: 0 0 100px 30px rgba(0, 0, 0, 0.9); }
-
-.btn-group.vertical {
-  border-radius: 10px; }
-  .btn-group.vertical .btn {
-    border-radius: 0;
-    border-bottom: 1px solid #123a50; }
-  .btn-group.vertical .btn:first-child {
-    border-radius: 10px 10px 0 0; }
-  .btn-group.vertical .btn:last-child {
-    border-radius: 0 0 10px 10px; }
-
-.btn {
-  background: -webkit-linear-gradient(top, #20678f, #1b587a);
-  color: #fff;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  width: 200px;
-  border-radius: 10px;
-  cursor: pointer;
-  text-shadow: 1px 0 1px #000; }
-  .btn:hover {
-    background: -webkit-linear-gradient(top, #22709b, #1b587a); }
-  .btn.large {
-    padding: 25px;
-    font-size: 2.7rem; }
-
-.inactive .btn, .btn.inactive {
-  cursor: default;
-  text-shadow: none; }
 
 #pingPongTable {
   width: 630px;
@@ -168,3 +147,93 @@ i {
     cursor: pointer; }
   #playerList li.available-false {
     opacity: .4; }
+
+.match-setup .btn-group {
+  box-shadow: 0 0 100px 30px rgba(0, 0, 0, 0.9); }
+
+#matchInfo h1, #matchInfo h2 {
+  text-shadow: 2px 2px 2px #000;
+  margin: 20px 0;
+  text-align: center; }
+#matchInfo h1 {
+  font-size: 6rem; }
+#matchInfo h2 {
+  font-size: 22rem; }
+
+#loserPoints {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: rgba(20, 20, 20, 0.9);
+  border-left: 1px solid #333; }
+  #loserPoints.team-1 {
+    left: 0; }
+  #loserPoints.team-2 {
+    right: 0; }
+  #loserPoints h1 {
+    margin-top: 45px;
+    text-transform: none;
+    font-size: 3.0rem;
+    text-align: center; }
+  #loserPoints #pointList {
+    margin: 40px; }
+  #loserPoints li {
+    width: 20%;
+    display: block;
+    float: left; }
+  #loserPoints a {
+    display: block;
+    font-size: 6.0rem;
+    border-radius: 20%;
+    color: #fff;
+    background: #333;
+    text-align: center;
+    line-height: 100px;
+    margin: 0 20px 20px 0;
+    border: 1px solid #000;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #000; }
+
+.btn {
+  background: -webkit-linear-gradient(top, #20678f, #1b587a);
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-shadow: 1px 0 1px #000; }
+  .btn:hover {
+    background: -webkit-linear-gradient(top, #22709b, #1b587a); }
+  .btn.large {
+    padding: 25px;
+    font-size: 2.7rem; }
+
+.inactive .btn, .btn.inactive {
+  cursor: default;
+  text-shadow: none; }
+
+.btn-group.vertical {
+  border-radius: 10px; }
+  .btn-group.vertical .btn {
+    border-radius: 0;
+    border-bottom: 1px solid #123a50; }
+  .btn-group.vertical .btn:first-child {
+    border-radius: 10px 10px 0 0; }
+  .btn-group.vertical .btn:last-child {
+    border-radius: 0 0 10px 10px;
+    border-bottom: 0; }
+.btn-group.horizontal {
+  border-radius: 10px; }
+  .btn-group.horizontal .btn {
+    display: block;
+    float: left;
+    border-radius: 0;
+    border-right: 1px solid #123a50; }
+  .btn-group.horizontal .btn:first-child {
+    border-radius: 10px 0 0 10px; }
+  .btn-group.horizontal .btn:last-child {
+    border-radius: 0 10px 10px 0;
+    border-right: 0; }
