@@ -257,6 +257,18 @@ define(['app'], function (app) {
 
 			};
 
+			api.setStatus = function(status){
+
+				match.status = status;
+
+			};
+
+			api.getStatus = function(status){
+
+				return match.status;
+
+			};
+
 			api.getNumWins = function(teamId){
 
 				var numWins = 0;
@@ -332,6 +344,8 @@ define(['app'], function (app) {
 						maxGames: 0,
 
 						participants: getDefaultParticipants(),
+
+						status: "challenge", // active, completed
 
 						games: []
 

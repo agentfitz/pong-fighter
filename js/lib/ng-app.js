@@ -38,6 +38,11 @@ define(["config"], function (config) {
 			templateUrl: "js/app/views/match-complete.html"
 		});
 
+		$stateProvider.state("submit-challenge", {
+			url: "/submit-challenge",
+			templateUrl: "js/app/views/submit-challenge.html"
+		});
+
 
 
 

@@ -84,6 +84,18 @@ define(['app'], function (app) {
 
 			MatchService.setMaxGames(numGames);
 
+			if(MatchService.getStatus() === "active") {
+
+				$location.path("/match");
+
+			}
+
+			else if (MatchService.getStatus() === "challenge") {
+
+				$location.path("/submit-challenge");
+
+			}
+
 		};
 
 		$scope.revealLoserPoints = function(winningTeamId, losingTeamId){
@@ -103,6 +115,26 @@ define(['app'], function (app) {
 
 
 			$location.path("/challenge");
+
+		};
+
+		$scope.setupMatch = function(){
+
+			console.log("setup match");
+
+			MatchService.setStatus("active");
+
+			$location.path("/match-setup");
+
+		};
+
+		$scope.setupChallenge = function(){
+
+			console.log("setup challenge");
+
+			MatchService.setStatus("challenge");
+
+			$location.path("/match-setup");
 
 		};
 
@@ -148,7 +180,7 @@ define(['app'], function (app) {
 			if(MatchService.isMatchOver()){
 
 				console.log("save match to db");
-				
+
 				$location.path("/match-complete");
 
 			}
