@@ -49,6 +49,8 @@ define(['app'], function (app) {
 		$scope.totalGames = MatchService.getMaxGames();
 		$scope.activeGame = 1;
 
+		console.log($scope.participants);
+
 
 
 			

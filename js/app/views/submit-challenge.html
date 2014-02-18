@@ -3,8 +3,31 @@
 
 	<control-bar></control-bar>
 
+	<form id="challengeForm" class="auto-center-horizontal">
 
-	<h1>Submit challenge!</h1>
+		<h1>Submit challenge!</h1>
+
+		<p>Fitz and Carny are challenging Swan and Brute to a best of 5 match.</p>
+
+		<!-- <p>
+			{{ participants[0].name }} and
+			{{ participants[2].name }} are challenging
+			{{ participants[1].name }} and
+			{{ participants[3].name }} to a best of 5 match.
+		</p> -->
+
+		<p class="auto-smack">
+			Your weak kyle slam is no use against the power of the thunder slam...
+			We will destroy you.
+		</p>
+
+		<textarea name="smacktalk" placeholder="Enter additional smack talk"></textarea>
+
+		<a sref="/challenge-sent" class="btn large">Send Challenge!</a>
+
+
+
+	</form>
 
 
 	<img src="/img/players/profile/cinthia.png" height="1000" style="position: absolute;">

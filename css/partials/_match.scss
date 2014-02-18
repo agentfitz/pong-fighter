@@ -1,8 +1,5 @@
 
 .match-setup {
-
-	
-
 	
 	.btn-group {
 
@@ -13,7 +10,7 @@
 }
 
 
-#matchInfo {
+#matchInfo,#challengeForm {
 
 	h1,h2 {
 		text-shadow: 2px 2px 2px #000;		
@@ -32,6 +29,44 @@
 
 	h2 {
 		font-size: 22rem;
+	}
+
+}
+
+#challengeForm {
+
+	width: 40%;
+	text-align: center;
+
+	p {
+
+		color: #fff;
+		text-transform: none;
+		font-size: 2.4rem;
+		text-align: center;
+
+	}
+
+	textarea {
+
+		width: 100%;
+		height: 150px;
+		font-size: 2.4rem;
+
+	}
+
+	a {
+
+		margin-top: 25px;
+
+	}
+
+	.auto-smack {
+
+		font-style: italic;
+		color: rgb(51, 255, 0);
+		font-size: 3.4rem;
+
 	}
 
 }

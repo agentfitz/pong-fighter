@@ -60,6 +60,7 @@
 	border-radius: 18px;
 
 	a {
+		display: block;
 		border: 1px solid darken($activeBtnBg, 7%);
 		color: $lineColor;
 		background: -webkit-linear-gradient(top, lighten($activeBtnBg, 5%), $activeBtnBg);

@@ -85,6 +85,7 @@ i {
 #primaryBtnWrapper {
   border-radius: 18px; }
   #primaryBtnWrapper a {
+    display: block;
     border: 1px solid #15435d;
     color: #eeeeee;
     background: -webkit-linear-gradient(top, #20678f, #1b587a);
@@ -151,16 +152,35 @@ i {
 .match-setup .btn-group {
   box-shadow: 0 0 100px 30px rgba(0, 0, 0, 0.9); }
 
-#matchInfo h1, #matchInfo h2 {
+#matchInfo h1, #matchInfo h2, #challengeForm h1, #challengeForm h2 {
   text-shadow: 2px 2px 2px #000;
   margin: 20px 0;
   text-align: center; }
-#matchInfo h1 {
+#matchInfo h1, #challengeForm h1 {
   font-size: 6rem; }
-  #matchInfo h1 span {
+  #matchInfo h1 span, #challengeForm h1 span {
     font-size: 4.0rem; }
-#matchInfo h2 {
+#matchInfo h2, #challengeForm h2 {
   font-size: 22rem; }
+
+#challengeForm {
+  width: 40%;
+  text-align: center; }
+  #challengeForm p {
+    color: #fff;
+    text-transform: none;
+    font-size: 2.4rem;
+    text-align: center; }
+  #challengeForm textarea {
+    width: 100%;
+    height: 150px;
+    font-size: 2.4rem; }
+  #challengeForm a {
+    margin-top: 25px; }
+  #challengeForm .auto-smack {
+    font-style: italic;
+    color: #33ff00;
+    font-size: 3.4rem; }
 
 #loserPoints {
   position: absolute;
@@ -218,7 +238,7 @@ i {
   background: -webkit-linear-gradient(top, #20678f, #1b587a);
   color: #fff;
   text-decoration: none;
-  display: block;
+  display: inline-block;
   text-align: center;
   width: 200px;
   border-radius: 10px;
@@ -237,6 +257,7 @@ i {
 .btn-group.vertical {
   border-radius: 10px; }
   .btn-group.vertical .btn {
+    display: block;
     border-radius: 0;
     border-bottom: 1px solid #123a50; }
   .btn-group.vertical .btn:first-child {
