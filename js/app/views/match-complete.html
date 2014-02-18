@@ -1,0 +1,27 @@
+
+
+<div ng-controller="ChallengeCtrl" class="match-setup">
+
+
+	<div id="matchInfo" class="auto-center-horizontal">
+
+		<h1>
+			Team 1 Wins!
+		</h1>
+
+		<h2>{{ team1Wins }} &ndash; {{ team2Wins }}</h2>
+
+		<div class="btn-group horizontal">
+
+			<a class="btn large" ng-click="setupRematch()">Rematch</a>
+			<a class="btn large" ng-click="returnHomeAfterMatch()">Return Home</a>
+
+		</div>
+
+	</div>
+
+	<img src="/img/players/profile/cinthia.png" height="1000" style="position: absolute;">
+	<img src="/img/players/profile/brian.png" height="1000" style="position: absolute; -webkit-transform: scaleX(-1); right: 0;">
+
+
+</div>

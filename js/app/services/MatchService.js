@@ -15,42 +15,7 @@ define(['app'], function (app) {
 
 		var api = {},
 
-			match = {
-
-				maxGames: 0,
-
-				participants: [
-
-					{
-						idx: 0,
-						content: "+",
-						isActive: false,
-						playerId: 0
-					},
-					{
-						idx: 1,
-						content: "+",
-						isActive: false,
-						playerId: 0
-					},
-					{
-						idx: 2,
-						content: "+",
-						isActive: false,
-						playerId: 0
-					},
-					{
-						idx: 3,
-						content: "+",
-						isActive: false,
-						playerId: 0
-					}
-
-				],
-
-				games: []
-
-			},
+			match = {},
 			
 			state = {
 				activeParticipantIdx: 0
@@ -125,6 +90,53 @@ define(['app'], function (app) {
 
 				return valid;
 
+			},
+
+			getDefaultParticipantData = function(i){
+
+				return {
+					idx: i,
+					content: "+",
+					isActive: false,
+					playerId: 0
+				}
+
+			},
+
+			getDefaultParticipants = function(){
+
+				var slots = [1,2,3,4],
+					participants = [];
+
+				_.each(slots, function(slot, i){
+
+					participants[i] = getDefaultParticipantData(i);
+
+				});
+
+				return participants;
+
+			},
+
+			getNumWinsNecessaryToDecideMatch = function(){
+
+				return Math.ceil(match.maxGames / 2);
+
+			},
+
+			hasTeamWon = function(teamId){
+
+				var numWinsTeam = api.getNumWins(teamId),
+					hasWon = false;
+
+				if(numWinsTeam >= getNumWinsNecessaryToDecideMatch()){
+
+					hasWon = true;
+
+				}
+
+				return hasWon;
+
 			};
 
 
@@ -141,6 +153,18 @@ define(['app'], function (app) {
 			api.setActiveParticipantIdx = function(idx){
 
 				state.activeParticipantIdx = idx;
+
+			};
+
+			api.setMaxGames = function(numGames){
+
+				match.maxGames = numGames;
+
+			};
+
+			api.getMatch = function(numGames){
+
+				return match;
 
 			};
 
@@ -162,6 +186,47 @@ define(['app'], function (app) {
 
 			};
 
+			api.getWinningTeam = function(){				
+
+				var winningTeam;
+
+
+				if(hasTeamWon(1)) {
+
+					winningTeam = 1;
+
+				}
+
+				else if(hasTeamWon(2)) {
+
+					winningTeam = 2;
+
+				}
+
+				else {
+
+					console.log("neither team has won yet");
+
+				}
+
+				return winningTeam;
+
+			};
+
+			api.isMatchOver = function(){
+
+				var isOver = false;
+
+				if(hasTeamWon(1) || hasTeamWon(2)) {
+
+					isOver = true;
+
+				}
+
+				return isOver;
+
+			};
+
 			api.saveGame = function(obj){
 
 				var game = {};
@@ -172,9 +237,23 @@ define(['app'], function (app) {
 
 			};
 
-			api.getActiveMatch = function(){
+			api.getActiveGame = function(){
 
-				return match;
+				console.log("my active game: " + match.games.length);
+
+				return match.games.length + 1;
+
+			};
+
+			api.getNumGamesPlayed = function(){
+
+				return match.games.length;
+
+			};
+
+			api.getMaxGames = function(){
+
+				return match.maxGames;
 
 			};
 
@@ -196,9 +275,77 @@ define(['app'], function (app) {
 
 			};
 
+			api.setupRematch = function(){
+
+				var rematch = UtilService.getDeepCopy(match);
+				
+				match.id = 0;
+				rematch.games = [];
+				rematch.participants = match.participants;
+				rematch.maxGames = match.maxGames;
+
+				api.init(rematch);
+
+			};
+
+			api.reinit = function(){
+
+				var newMatch = {},
+					participants = UtilService.getDeepCopy(api.getParticipants());
+
+				console.log("reinit called");
+
+				if(hasTeamWon(1)){
+
+					participants[1] = getDefaultParticipantData(1);
+					participants[3] = getDefaultParticipantData(3);
+
+				}
+
+				else if (hasTeamWon(2)){
+
+					participants[0] = getDefaultParticipantData(0);
+					participants[2] = getDefaultParticipantData(2);
+
+				}
+
+				match.id = 0;
+				newMatch.participants = participants;
+
+
+				api.init(newMatch);
+
+
+			};
+
 			api.init = function(obj){
 
-				_.extend(match, obj);
+				if(!match.id){
+
+					console.log("initializing match");
+					console.log(getDefaultParticipants());					
+
+					match = {
+
+						id: UtilService.getUniqueId(),
+
+						maxGames: 0,
+
+						participants: getDefaultParticipants(),
+
+						games: []
+
+					};
+
+					_.extend(match, obj);
+
+				}
+
+				else {
+
+					console.log("match already initialized");
+
+				}
 
 			};
 		

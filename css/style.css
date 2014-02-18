@@ -157,6 +157,8 @@ i {
   text-align: center; }
 #matchInfo h1 {
   font-size: 6rem; }
+  #matchInfo h1 span {
+    font-size: 4.0rem; }
 #matchInfo h2 {
   font-size: 22rem; }
 
@@ -177,23 +179,40 @@ i {
     font-size: 3.0rem;
     text-align: center; }
   #loserPoints #pointList {
-    margin: 40px; }
-  #loserPoints li {
-    width: 20%;
-    display: block;
-    float: left; }
-  #loserPoints a {
-    display: block;
-    font-size: 6.0rem;
-    border-radius: 20%;
-    color: #fff;
-    background: #333;
-    text-align: center;
-    line-height: 100px;
-    margin: 0 20px 20px 0;
-    border: 1px solid #000;
-    text-decoration: none;
-    text-shadow: 1px 1px 1px #000; }
+    margin: 40px 20px 40px 40px;
+    overflow: auto; }
+    #loserPoints #pointList li {
+      width: 20%;
+      display: block;
+      float: left; }
+    #loserPoints #pointList a {
+      display: block;
+      font-size: 6.0rem;
+      border-radius: 20%;
+      color: #fff;
+      background: #333;
+      text-align: center;
+      line-height: 100px;
+      margin: 0 20px 20px 0;
+      border: 1px solid #000;
+      text-decoration: none;
+      text-shadow: 1px 1px 1px #000;
+      cursor: pointer; }
+
+#hideLoserPoints {
+  font-family: FontAwesome;
+  display: block;
+  color: #333;
+  font-size: 6rem;
+  cursor: pointer; }
+
+.team-1 #hideLoserPoints {
+  text-align: left;
+  margin-left: 40px; }
+
+.team-2 #hideLoserPoints {
+  text-align: right;
+  margin-right: 40px; }
 
 .btn {
   background: -webkit-linear-gradient(top, #20678f, #1b587a);

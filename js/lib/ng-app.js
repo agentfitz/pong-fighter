@@ -33,6 +33,11 @@ define(["config"], function (config) {
 			templateUrl: "js/app/views/match.html"
 		});
 
+		$stateProvider.state("match-complete", {
+			url: "/match-complete",
+			templateUrl: "js/app/views/match-complete.html"
+		});
+
 
 
 

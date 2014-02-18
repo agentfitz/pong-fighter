@@ -28,6 +28,15 @@ define(['app'], function (app) {
 		var soundIconStop = "fa-volume-up",
 			soundIconPlay = "fa-volume-off";
 
+		
+
+
+		AudioService.init();
+		MatchService.init();
+
+
+
+
 
 		$scope.players = PlayerService.getPlayers();
 		$scope.participants = MatchService.getParticipants();
@@ -37,12 +46,13 @@ define(['app'], function (app) {
 		$scope.loserPoints = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
 		$scope.team1Wins = MatchService.getNumWins(1);
 		$scope.team2Wins = MatchService.getNumWins(2);
-		$scope.match = MatchService.getActiveMatch();
+		$scope.totalGames = MatchService.getMaxGames();
+		$scope.activeGame = 1;
 
 
 
 			
-		AudioService.init();
+
 
 
 
@@ -70,6 +80,12 @@ define(['app'], function (app) {
 
 		};
 
+		$scope.setMaxGames = function(numGames){
+
+			MatchService.setMaxGames(numGames);
+
+		};
+
 		$scope.revealLoserPoints = function(winningTeamId, losingTeamId){
 
 			$scope.showLoserPoints = true;
@@ -78,12 +94,31 @@ define(['app'], function (app) {
 
 		};
 
-		$scope.initMatch = function(maxGames){
+		$scope.returnHomeAfterMatch = function(){
 
-			MatchService.init({
-				maxGames: maxGames,
-				games: []
-			});
+			console.log("match complete, return home");
+
+
+			MatchService.reinit();
+
+
+			$location.path("/challenge");
+
+		};
+
+		$scope.setupRematch = function(){
+
+			console.log("setup rematch");
+
+			MatchService.setupRematch();
+
+			$location.path("/match");
+
+		};
+
+		$scope.hideLoserPoints = function(){
+
+			$scope.showLoserPoints = false;
 
 		};
 
@@ -92,7 +127,6 @@ define(['app'], function (app) {
 			var game = {},
 				winningScore = losingScore < 10 ? 11 : losingScore + 2;
 
-			$scope.showLoserPoints = false;
 
 
 			MatchService.saveGame({
@@ -103,8 +137,21 @@ define(['app'], function (app) {
 			});
 
 
+			// better way to do this?
+			$scope.showLoserPoints = false;
 			$scope.team1Wins = MatchService.getNumWins(1);
 			$scope.team2Wins = MatchService.getNumWins(2);
+			$scope.activeGame = MatchService.getActiveGame();
+
+
+
+			if(MatchService.isMatchOver()){
+
+				console.log("save match to db");
+				
+				$location.path("/match-complete");
+
+			}
 
 
 
@@ -129,5 +176,6 @@ define(['app'], function (app) {
 		};
 
 
+	
 	}]);
 });

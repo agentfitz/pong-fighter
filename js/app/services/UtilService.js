@@ -8,7 +8,15 @@ define(["app"], function (app) {
 	app.factory("UtilService", function(){
 
 
-		var api = {};
+		var api = {},
+
+			s4 = function() {
+
+				return Math.floor((1 + Math.random()) * 0x10000)
+						   .toString(16)
+						   .substring(1);
+
+			};
 
 
 
@@ -35,6 +43,19 @@ define(["app"], function (app) {
 		
 		   return api.isNumber(n) && (Math.abs(n) % 2 == 1);
 		
+		};
+
+		api.getUniqueId = function() {
+			
+			return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+			s4() + '-' + s4() + s4() + s4();
+
+		};
+
+		api.getDeepCopy = function(obj){
+
+			return JSON.parse(JSON.stringify(obj))
+
 		};
 
 

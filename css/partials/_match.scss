@@ -22,7 +22,12 @@
 	}
 
 	h1 {
+
 		font-size: 6rem;
+
+		span {
+			font-size: 4.0rem;
+		}
 	}
 
 	h2 {
@@ -57,33 +62,61 @@
 
 	#pointList {
 
-		margin: 40px;
+		margin: 40px 20px 40px 40px;
+		overflow: auto;
+
+		li {
+
+			width: 20%;
+			display: block;
+			float: left;
+
+
+
+		}
+
+		a {
+
+			display: block;
+			font-size: 6.0rem;
+			border-radius: 20%;
+			color: #fff;
+			background: #333;
+			text-align: center;
+			line-height: 100px;
+			margin: 0 20px 20px 0;
+			border: 1px solid #000;
+			text-decoration: none;
+			text-shadow: 1px 1px 1px #000;
+			cursor: pointer;
+
+		}
 
 	}
 	
-	li {
-
-		width: 20%;
-		display: block;
-		float: left;
-
-	}
-
-	a {
-
-		display: block;
-		font-size: 6.0rem;
-		border-radius: 20%;
-		color: #fff;
-		background: #333;
-		text-align: center;
-		line-height: 100px;
-		margin: 0 20px 20px 0;
-		border: 1px solid #000;
-		text-decoration: none;
-		text-shadow: 1px 1px 1px #000;
-
-	}
 
 }
 
+#hideLoserPoints {
+
+	font-family: FontAwesome;
+	display: block;
+	color: #333;
+	font-size: 6rem;
+	cursor: pointer;
+
+}
+
+.team-1 #hideLoserPoints {
+
+	text-align: left;
+	margin-left: 40px;
+
+}
+
+.team-2 #hideLoserPoints {
+
+	text-align: right;
+	margin-right: 40px;
+
+}

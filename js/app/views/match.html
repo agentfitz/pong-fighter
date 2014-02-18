@@ -5,7 +5,10 @@
 
 	<div id="matchInfo" class="auto-center-horizontal">
 
-		<h1>Game 1 of {{ match.maxGames }}</h1>
+		<h1>
+			<span>Game</span> {{ activeGame }}
+			<span>of</span> {{ totalGames }}
+		</h1>
 
 		<h2>{{ team1Wins }} &ndash; {{ team2Wins }}</h2>
 
@@ -35,6 +38,8 @@
 			</li>
 
 		</ul>
+
+		<a id="hideLoserPoints" ng-click="hideLoserPoints()" class="fa-times-circle-o"></a>
 
 	</div>
 
